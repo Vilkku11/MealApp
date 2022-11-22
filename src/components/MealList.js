@@ -23,9 +23,14 @@ const MealList = () => {
         throw new Error("Something went wrong :(");
       }
       console.log(response);
+
       const data = await response.json();
+
+      const mealList = data.meals.map((index) => {
+        console.log(index);
+      });
+
       console.log(data.meals[0].strMeal);
-      console.log("dataa");
     } catch (error) {
       setError(error.message);
       console.log(error);
