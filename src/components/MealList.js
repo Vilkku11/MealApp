@@ -1,13 +1,35 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import MealPreview from "./MealPreview";
 import "./MealList.css";
 
 const MealList = () => {
+  const [error, setError] = useState(null);
   const search = useRef("");
 
-  const fetchMeals = async () => {
-    console.log("fetchimg meals");
+  const fetchMeals = async (event) => {
+    event.preventDefault();
+
+    let address =
+      "https://www.themealdb.com/api/json/v1/1/search.php?s=" +
+      search.current.value;
+
+    console.log(address);
+
+    try {
+      const response = await fetch(address);
+
+      if (!response.ok) {
+        throw new Error("Something went wrong :(");
+      }
+      console.log(response);
+      const data = await response.json();
+      console.log(data.meals[0].strMeal);
+      console.log("dataa");
+    } catch (error) {
+      setError(error.message);
+      console.log(error);
+    }
   };
 
   return (
