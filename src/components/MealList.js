@@ -6,6 +6,7 @@ import "./MealList.css";
 const MealList = () => {
   const [error, setError] = useState(null);
   const search = useRef("");
+  const [mealList, setMealList] = useState([]);
 
   const fetchMeals = async (event) => {
     event.preventDefault();
@@ -25,12 +26,12 @@ const MealList = () => {
       console.log(response);
 
       const data = await response.json();
-
-      const mealList = data.meals.map((index) => {
-        console.log(index);
+      const meals = [];
+      data.meals.map((index) => {
+        meals.push(index);
       });
-
-      console.log(data.meals[0].strMeal);
+      setMealList(meals);
+      console.log(meals);
     } catch (error) {
       setError(error.message);
       console.log(error);
@@ -50,6 +51,7 @@ const MealList = () => {
         </div>
         <button>Search!</button>
       </form>
+      <MealPreview mealList={mealList}></MealPreview>
     </div>
   );
 };
