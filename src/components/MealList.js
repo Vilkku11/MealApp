@@ -10,7 +10,7 @@ const MealList = () => {
 
   const fetchMeals = async (event) => {
     event.preventDefault();
-
+    // Fetch meals
     let address =
       "https://www.themealdb.com/api/json/v1/1/search.php?s=" +
       search.current.value;
@@ -26,12 +26,9 @@ const MealList = () => {
       console.log(response);
 
       const data = await response.json();
-      const meals = [];
-      data.meals.map((index) => {
-        meals.push(index);
-      });
-      setMealList(meals);
-      console.log(meals);
+      console.log(data);
+
+      setMealList(data);
     } catch (error) {
       setError(error.message);
       console.log(error);
