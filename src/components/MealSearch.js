@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-
+import "./MealSearch.css";
 import MealList from "./MealList";
 
 const MealSearch = () => {
@@ -38,7 +38,6 @@ const MealSearch = () => {
         });
         setNotFound(false);
       } else {
-        meals = [];
         setNotFound(true);
       }
 
@@ -52,7 +51,7 @@ const MealSearch = () => {
 
   return (
     <div>
-      <form onSubmit={fetchMeals}>
+      <form className="mealSearch" onSubmit={fetchMeals}>
         <div>
           <textarea
             rows="1"
