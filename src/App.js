@@ -1,9 +1,10 @@
 import "./App.css";
 import MealList from "./components/MealList";
+import MealSearch from "./components/MealSearch";
 function App() {
   return (
     <div>
-      <MealList></MealList>
+      <MealSearch></MealSearch>
     </div>
   );
 }
