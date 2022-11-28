@@ -4,12 +4,15 @@ import MealPreview from "./MealPreview";
 import "./MealList.css";
 
 const MealList = (props) => {
-  console.log(props.mealList.meals);
+  console.log(props.notFound);
+
   return (
     <ul className="mealMenu">
-      {props.mealList.meals.map((item) => (
-        <MealPreview strMeal={item.strMeal} />
-      ))}
+      {props.notFound ? (
+        <h1>Not Found</h1>
+      ) : (
+        props.mealList.map((item) => <MealPreview strMeal={item.strMeal} />)
+      )}
     </ul>
   );
 };

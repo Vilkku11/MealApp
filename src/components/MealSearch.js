@@ -6,9 +6,11 @@ const MealSearch = () => {
   const [error, setError] = useState(null);
   const search = useRef("");
   const [mealList, setMealList] = useState([]);
+  const [notFound, setNotFound] = useState(false);
 
   const fetchMeals = async (event) => {
     event.preventDefault();
+    let meals = [];
     // Fetch meals
     let address =
       "https://www.themealdb.com/api/json/v1/1/search.php?s=" +
@@ -26,7 +28,21 @@ const MealSearch = () => {
 
       const data = await response.json();
       console.log(data);
-      setMealList(data);
+
+      // Check if response contains any meal, if not return empty
+      if (data.meals != null) {
+        meals = data.meals.map((item) => {
+          return {
+            strMeal: item.strMeal,
+          };
+        });
+        setNotFound(false);
+      } else {
+        meals = [];
+        setNotFound(true);
+      }
+
+      setMealList(meals);
       console.log(mealList.meal);
     } catch (error) {
       setError(error.message);
@@ -47,7 +63,7 @@ const MealSearch = () => {
         </div>
         <button>Search!</button>
       </form>
-      <MealList mealList={mealList}></MealList>
+      <MealList mealList={mealList} notFound={notFound}></MealList>
     </div>
   );
 };
