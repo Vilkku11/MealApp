@@ -14,10 +14,8 @@ const MealList = (props) => {
         props.mealList.map((item) => (
           <MealPreview
             key={item.idMeal}
-            strArea={item.strArea}
             strMeal={item.strMeal}
             strMealThumb={item.strMealThumb}
-            strInstructions={item.strInstructions}
           />
         ))
       )}
