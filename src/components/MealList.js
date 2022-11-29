@@ -11,7 +11,15 @@ const MealList = (props) => {
       {props.notFound ? (
         <h1>Not Found</h1>
       ) : (
-        props.mealList.map((item) => <MealPreview strMeal={item.strMeal} />)
+        props.mealList.map((item) => (
+          <MealPreview
+            key={item.idMeal}
+            strArea={item.strArea}
+            strMeal={item.strMeal}
+            strMealThumb={item.strMealThumb}
+            strInstructions={item.strInstructions}
+          />
+        ))
       )}
     </ul>
   );

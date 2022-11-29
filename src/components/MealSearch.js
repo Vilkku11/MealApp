@@ -29,20 +29,15 @@ const MealSearch = () => {
       const data = await response.json();
       console.log(data);
 
-      // Check if response contains any meal, if not return empty
+      // Check if response contains any meal, if not set notFound
       if (data.meals != null) {
-        meals = data.meals.map((item) => {
-          return {
-            strMeal: item.strMeal,
-          };
-        });
+        meals = data.meals;
         setNotFound(false);
       } else {
         setNotFound(true);
       }
 
       setMealList(meals);
-      console.log(mealList.meal);
     } catch (error) {
       setError(error.message);
       console.log(error);
