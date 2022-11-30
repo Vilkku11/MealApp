@@ -17,9 +17,9 @@ const MealPreview = (props) => {
   }, []);
 
   return (
-    <div>
+    <div className="mealPreview">
       <h1>MealPreviewlol</h1>
-      <img src={img} />
+      <img src={img} alt="Could not load :(" />
       <h2>{props.strMeal}</h2>
     </div>
   );
