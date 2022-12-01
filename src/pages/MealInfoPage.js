@@ -17,6 +17,7 @@ const MealInfoPage = (props) => {
       <h2>yeah</h2>
       <h2>{props.mealId}</h2>
       <h2>{data.strMeal}</h2>
+      <p>{data.strInstructions}</p>
     </div>
   );
 };

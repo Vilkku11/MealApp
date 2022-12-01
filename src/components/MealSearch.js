@@ -47,12 +47,12 @@ const MealSearch = (props) => {
     <div>
       <form className="mealSearch" onSubmit={fetchMeals}>
         <div>
-          <textarea
+          <input
             rows="1"
             id="search"
             ref={search}
             placeholder="Search here!"
-          ></textarea>
+          ></input>
         </div>
         <button>Search!</button>
       </form>
