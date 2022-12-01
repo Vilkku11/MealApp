@@ -2,10 +2,9 @@ import { useRef, useState } from "react";
 import "./MealSearch.css";
 import MealList from "./MealList";
 
-const MealSearch = () => {
+const MealSearch = (props) => {
   const [error, setError] = useState(null);
   const search = useRef("");
-  const [mealList, setMealList] = useState([]);
   const [notFound, setNotFound] = useState(false);
 
   const fetchMeals = async (event) => {
@@ -37,7 +36,7 @@ const MealSearch = () => {
         setNotFound(true);
       }
 
-      setMealList(meals);
+      props.setMealList(meals);
     } catch (error) {
       setError(error.message);
       console.log(error);
@@ -57,7 +56,7 @@ const MealSearch = () => {
         </div>
         <button>Search!</button>
       </form>
-      <MealList mealList={mealList} notFound={notFound}></MealList>
+      <MealList mealList={props.mealList} notFound={notFound}></MealList>
     </div>
   );
 };
