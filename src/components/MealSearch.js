@@ -56,7 +56,11 @@ const MealSearch = (props) => {
         </div>
         <button>Search!</button>
       </form>
-      <MealList mealList={props.mealList} notFound={notFound}></MealList>
+      <MealList
+        mealList={props.mealList}
+        notFound={notFound}
+        setMealId={props.setMealId}
+      ></MealList>
     </div>
   );
 };

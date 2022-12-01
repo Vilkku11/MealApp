@@ -9,6 +9,7 @@ import MealInfoPage from "./pages/MealInfoPage";
 import "./App.css";
 function App() {
   const [mealList, setMealList] = useState([]);
+  const [mealId, setMealId] = useState([]);
   return (
     <div className="body">
       <MainNavigation></MainNavigation>
@@ -18,11 +19,12 @@ function App() {
           <MealSearch
             mealList={mealList}
             setMealList={setMealList}
+            setMealId={setMealId}
           ></MealSearch>
         </Route>
 
         <Route path="/meal">
-          <MealInfoPage></MealInfoPage>
+          <MealInfoPage mealId={mealId} mealList={mealList}></MealInfoPage>
         </Route>
       </Switch>
     </div>

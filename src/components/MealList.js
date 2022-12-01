@@ -1,5 +1,3 @@
-import { useRef, useState } from "react";
-
 import MealPreview from "./MealPreview";
 import "./MealList.css";
 
@@ -13,7 +11,8 @@ const MealList = (props) => {
       ) : (
         props.mealList.map((item) => (
           <MealPreview
-            key={item.idMeal}
+            idMeal={item.idMeal}
+            setMealId={props.setMealId}
             strMeal={item.strMeal}
             strMealThumb={item.strMealThumb}
           />
