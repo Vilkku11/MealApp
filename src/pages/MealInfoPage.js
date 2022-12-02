@@ -1,10 +1,16 @@
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+import "./MealInfoPage.css";
+
 const MealInfoPage = (props) => {
   const history = useHistory();
   const [img, setImg] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
+  const [measures, setMeasures] = useState([]);
   let data = "";
+
+  const getIngredients = () => {};
 
   const backToMain = () => {
     history.push("/");
@@ -30,12 +36,14 @@ const MealInfoPage = (props) => {
   }, []);
   return (
     <div>
-      <h1>MealInfoPage</h1>
       <button onClick={backToMain}>back to main</button>
-      <h2>{props.mealId}</h2>
-      <img src={img} alt="Could not load :(" />
-      <h2>{data.strMeal}</h2>
-      <p>{data.strInstructions}</p>
+      <div className="mealInfo">
+        <h1>{data.strMeal}</h1>
+        <img src={img} alt="Could not load :(" />
+        <h3>Needed ingredients:</h3>
+        <h3>How to make:</h3>
+        <p>{data.strInstructions}</p>
+      </div>
     </div>
   );
 };
