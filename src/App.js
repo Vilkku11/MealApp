@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import MainNavigation from "./components/MainNavigation";
 import MealSearch from "./components/MealSearch";

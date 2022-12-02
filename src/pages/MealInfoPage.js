@@ -33,7 +33,7 @@ const MealInfoPage = (props) => {
       <h1>MealInfoPage</h1>
       <button onClick={backToMain}>back to main</button>
       <h2>{props.mealId}</h2>
-      <img src={img} alt="Could not load image :(" />
+      <img src={img} alt="Could not load :(" />
       <h2>{data.strMeal}</h2>
       <p>{data.strInstructions}</p>
     </div>
