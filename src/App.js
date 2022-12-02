@@ -10,6 +10,7 @@ import "./App.css";
 function App() {
   const [mealList, setMealList] = useState([]);
   const [mealId, setMealId] = useState([]);
+
   return (
     <div className="body">
       <MainNavigation></MainNavigation>
