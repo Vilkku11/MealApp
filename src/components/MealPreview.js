@@ -24,10 +24,9 @@ const MealPreview = (props) => {
     history.push("/meal");
   };
   return (
-    <div className="mealPreview">
+    <div className="mealPreview" onClick={clicked}>
       <h1>{props.strMeal}</h1>
       <img src={img} alt="Could not load :(" />
-      <button onClick={clicked}>change pagee</button>
     </div>
   );
 };
