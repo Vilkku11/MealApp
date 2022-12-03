@@ -17,7 +17,7 @@ const MealPreview = (props) => {
   useEffect(() => {
     fetchImage();
     console.log("RUNNING IN USEEFFECT");
-  }, []);
+  }, [props]);
 
   const clicked = () => {
     props.setMealId(props.idMeal);
