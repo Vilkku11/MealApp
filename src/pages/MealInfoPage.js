@@ -7,28 +7,8 @@ import "./MealInfoPage.css";
 const MealInfoPage = (props) => {
   const history = useHistory();
 
-  const [ingredients, setIngredients] = useState([]);
-  const [measures, setMeasures] = useState([]);
   const [data, setData] = useState([]);
   //let data = "";
-
-  /*const getIngredients = () => {
-    console.log("ingetingredients");
-    let ing = [];
-    let mea = [];
-    data.map((item) => {
-      if (item.toString().includes("strIngredient") != true) {
-        ing.push(item);
-      }
-
-      if (item.toString().includes("strMeasure") == true) {
-        mea.push(item);
-      }
-    });
-    setIngredients(ing);
-    setMeasures(mea);
-    console.log(ing);
-  };*/
 
   const backToMain = () => {
     history.push("/");
