@@ -48,7 +48,9 @@ const MealInfo = (props) => {
     return (
       <ul>
         {array.map((item) => (
-          <li key={item}>{item}</li>
+          <li className="ingredients" key={item}>
+            {item}
+          </li>
         ))}
       </ul>
     );
