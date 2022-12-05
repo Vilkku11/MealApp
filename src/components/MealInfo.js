@@ -65,8 +65,11 @@ const MealInfo = (props) => {
     <div className="mealInfo">
       <h1>{data.strMeal}</h1>
       <img src={img} alt="Could not load"></img>
+      <h2>Ingredients:</h2>
       <div>{renderArray(ingredients)}</div>
       <div>{renderArray(measures)}</div>
+      <h2>Instructions:</h2>
+      <h3>{data.strInstructions}</h3>
     </div>
   );
 };
