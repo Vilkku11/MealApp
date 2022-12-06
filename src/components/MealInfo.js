@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import "./MealInfo.css";
 
 const MealInfo = (props) => {
-  const [img, setImg] = useState([]);
+  //const [img, setImg] = useState([]);
 
   const data = props.data;
   //let ingredients = [];
@@ -12,16 +12,6 @@ const MealInfo = (props) => {
   const [measures, setMeasures] = useState([]);
 
   console.log(data.strMealThumb);
-
-  const fetchImage = async () => {
-    console.log("in fetchImage");
-    console.log(data.strMealThumb);
-    console.log(data.strMealThumb);
-    const res = await fetch(data.strMealThumb);
-    const imageBlob = await res.blob();
-    const imageObjectURL = URL.createObjectURL(imageBlob);
-    setImg(imageObjectURL);
-  };
 
   // Extract ingredients and measurements
   const getIngredients = () => {
@@ -57,14 +47,13 @@ const MealInfo = (props) => {
   };
 
   useEffect(() => {
-    fetchImage();
     getIngredients();
   }, [props]);
 
   return (
     <div className="mealInfo">
       <h1>{data.strMeal}</h1>
-      <img src={img} alt="Could not load"></img>
+      <img src={props.img} alt="Could not load"></img>
       <h2>Ingredients:</h2>
       <div>{renderArray(ingredients)}</div>
       <div>{renderArray(measures)}</div>

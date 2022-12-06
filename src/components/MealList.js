@@ -15,6 +15,7 @@ const MealList = (props) => {
             setMealId={props.setMealId}
             strMeal={item.strMeal}
             strMealThumb={item.strMealThumb}
+            setImg={props.setImg}
           />
         ))
       )}

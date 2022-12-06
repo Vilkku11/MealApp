@@ -11,6 +11,7 @@ import "./App.css";
 function App() {
   const [mealList, setMealList] = useState([]);
   const [mealId, setMealId] = useState([]);
+  const [img, setImg] = useState([]);
 
   return (
     <div className="body">
@@ -22,11 +23,16 @@ function App() {
             mealList={mealList}
             setMealList={setMealList}
             setMealId={setMealId}
+            setImg={setImg}
           ></MealSearch>
         </Route>
 
         <Route path="/meal">
-          <MealInfoPage mealId={mealId} mealList={mealList}></MealInfoPage>
+          <MealInfoPage
+            mealId={mealId}
+            mealList={mealList}
+            img={img}
+          ></MealInfoPage>
         </Route>
       </Switch>
     </div>

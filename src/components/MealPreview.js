@@ -10,8 +10,9 @@ const MealPreview = (props) => {
   const fetchImage = async () => {
     const res = await fetch(props.strMealThumb);
     const imageBlob = await res.blob();
-    const imgaeObjectURL = URL.createObjectURL(imageBlob);
-    setImg(imgaeObjectURL);
+    const imageObjectURL = URL.createObjectURL(imageBlob);
+    //props.setImg(imageObjectURL);
+    setImg(imageObjectURL);
   };
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const MealPreview = (props) => {
 
   const clicked = () => {
     props.setMealId(props.idMeal);
+    props.setImg(img);
     history.push("/meal");
   };
   return (

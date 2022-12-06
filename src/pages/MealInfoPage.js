@@ -28,7 +28,7 @@ const MealInfoPage = (props) => {
     <div>
       <button onClick={backToMain}>back to main</button>
       <div className="mealInfo">
-        <MealInfo data={data}></MealInfo>
+        <MealInfo data={data} img={props.img}></MealInfo>
       </div>
     </div>
   );

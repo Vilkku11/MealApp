@@ -60,6 +60,7 @@ const MealSearch = (props) => {
         mealList={props.mealList}
         notFound={notFound}
         setMealId={props.setMealId}
+        setImg={props.setImg}
       ></MealList>
     </div>
   );
