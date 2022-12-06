@@ -1,5 +1,5 @@
 import { Form, Button, Card, Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 
@@ -7,6 +7,7 @@ const Signup = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
+  const history = useHistory();
 
   const { signup } = useAuth();
 
@@ -28,6 +29,7 @@ const Signup = () => {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
+      history.push("/dashboard");
     } catch {
       setError("Error making an account");
     }
@@ -53,7 +55,7 @@ const Signup = () => {
               <Form.Label>Password Again</Form.Label>
               <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button disabled={loading} className="w-100 mt-3" type="submit">
               Sign up
             </Button>
           </Form>

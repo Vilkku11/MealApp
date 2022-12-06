@@ -6,12 +6,12 @@ import { useAuth } from "../../contexts/AuthContext";
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
+  const history = useHistory();
 
   const { login } = useAuth();
 
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const history = useHistory();
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ const Login = () => {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button disabled={loading} className="w-100 mt-3" type="submit">
               Log in
             </Button>
           </Form>
