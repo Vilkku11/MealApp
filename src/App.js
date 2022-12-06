@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MainNavigation from "./components/MainNavigation";
 import MealSearch from "./components/MealSearch";
 import MealInfoPage from "./pages/MealInfoPage";
-import "./App.css";
+
 function App() {
   const [mealList, setMealList] = useState([]);
   const [mealId, setMealId] = useState([]);
