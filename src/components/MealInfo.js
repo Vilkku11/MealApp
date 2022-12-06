@@ -1,5 +1,5 @@
-import { getValue } from "@testing-library/user-event/dist/utils";
 import { useState, useEffect } from "react";
+import { Container } from "react-bootstrap";
 
 import "./MealInfo.css";
 
@@ -10,6 +10,7 @@ const MealInfo = (props) => {
   //let ingredients = [];
   const [ingredients, setIngredients] = useState([]);
   const [measures, setMeasures] = useState([]);
+  const [videoLink, setVideoLink] = useState("");
 
   console.log(data.strMealThumb);
 
@@ -31,14 +32,21 @@ const MealInfo = (props) => {
     setIngredients(ingredients);
     setMeasures(measures);
   };
+  console.log(data.strYoutube);
+  const parseVideoLink = () => {
+    if (data.strYoutube) {
+      setVideoLink(data.strYoutube.replace("watch?v=", "embed/"));
+      console.log(data.strYoutube.replace("watch?v=", "embed/"));
+    }
+  };
 
   // Renders given array
   const renderArray = (array) => {
     console.log(array);
     return (
       <ul>
-        {array.map((item) => (
-          <li className="ingredients" key={item}>
+        {array.map((item, index) => (
+          <li className="ingredients" key={index}>
             {item}
           </li>
         ))}
@@ -48,6 +56,7 @@ const MealInfo = (props) => {
 
   useEffect(() => {
     getIngredients();
+    parseVideoLink();
   }, [props]);
 
   return (
@@ -58,7 +67,16 @@ const MealInfo = (props) => {
       <div>{renderArray(ingredients)}</div>
       <div>{renderArray(measures)}</div>
       <h2>Instructions:</h2>
-      <h3>{data.strInstructions}</h3>
+      <p>{data.strInstructions}</p>
+      <Container>
+        <div className="ratio ratio-16x9">
+          <iframe
+            src={videoLink}
+            title="Youtube video"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </Container>
     </div>
   );
 };
