@@ -10,6 +10,8 @@ import MainNavigation from "./components/MainNavigation";
 import MealSearch from "./components/MealSearch";
 import MealInfoPage from "./pages/MealInfoPage";
 import Signup from "./components/Authentication/Signup";
+import Dashboard from "./components/Authentication/Dashboard";
+import Login from "./components/Authentication/Login";
 
 function App() {
   const [mealList, setMealList] = useState([]);
@@ -48,6 +50,12 @@ function App() {
           <Switch>
             <Route path="/signup">
               <Signup></Signup>
+            </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <Route path="/dashboard">
+              <Dashboard></Dashboard>
             </Route>
           </Switch>
         </Container>
