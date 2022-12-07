@@ -23,8 +23,8 @@ const Login = () => {
       history.push("/dashboard");
     } catch {
       setError("Failed to sign in");
-      setLoading(false);
     }
+    setLoading(false);
   };
 
   return (
@@ -46,7 +46,7 @@ const Login = () => {
               Log in
             </Button>
           </Form>
-          <div className="w-100 text-cetner mt-3">
+          <div className="w-100 mt-3">
             <Link to="/forgot-password">Forgot Password?</Link>
           </div>
         </Card.Body>
