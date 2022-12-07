@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 
 import "./MealInfo.css";
 
@@ -64,8 +64,18 @@ const MealInfo = (props) => {
       <h1>{data.strMeal}</h1>
       <img src={props.img} alt="Could not load"></img>
       <h2>Ingredients:</h2>
-      <div>{renderArray(ingredients)}</div>
-      <div>{renderArray(measures)}</div>
+      <Container className="d-flex align-items-center justify-content-center">
+        <Card>
+          <Card.Body>
+            <p>{renderArray(ingredients)}</p>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Body>
+            <p>{renderArray(measures)}</p>
+          </Card.Body>
+        </Card>
+      </Container>
       <h2>Instructions:</h2>
       <p>{data.strInstructions}</p>
       <Container>

@@ -1,7 +1,16 @@
 .mealInfo {
   text-align: center;
+  align-items: center;
 }
+/*
 .ingredients {
   list-style-type: none;
   background-color: rgb(228, 230, 231);
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  margin: auto 0;
+  overflow-y: auto;
+  padding: 10px 0;
 }
+*/

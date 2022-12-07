@@ -24,26 +24,26 @@ function App() {
     <AuthProvider>
       <div className="body">
         <MainNavigation></MainNavigation>
+        <Container>
+          <Switch>
+            <Route path="/" exact>
+              <MealSearch
+                mealList={mealList}
+                setMealList={setMealList}
+                setMealId={setMealId}
+                setImg={setImg}
+              ></MealSearch>
+            </Route>
 
-        <Switch>
-          <Route path="/" exact>
-            <MealSearch
-              mealList={mealList}
-              setMealList={setMealList}
-              setMealId={setMealId}
-              setImg={setImg}
-            ></MealSearch>
-          </Route>
-
-          <Route path="/meal">
-            <MealInfoPage
-              mealId={mealId}
-              mealList={mealList}
-              img={img}
-            ></MealInfoPage>
-          </Route>
-        </Switch>
-
+            <Route path="/meal">
+              <MealInfoPage
+                mealId={mealId}
+                mealList={mealList}
+                img={img}
+              ></MealInfoPage>
+            </Route>
+          </Switch>
+        </Container>
         <Container
           className="d-flex align-items-center justify-content-center"
           style={{ minHeight: "100vh" }}

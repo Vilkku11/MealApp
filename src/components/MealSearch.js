@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Button, Container, Form } from "react-bootstrap";
 import "./MealSearch.css";
 import MealList from "./MealList";
 
@@ -44,7 +45,7 @@ const MealSearch = (props) => {
   };
 
   return (
-    <div>
+    <Container>
       <form className="mealSearch" onSubmit={fetchMeals}>
         <div>
           <input
@@ -62,7 +63,7 @@ const MealSearch = (props) => {
         setMealId={props.setMealId}
         setImg={props.setImg}
       ></MealList>
-    </div>
+    </Container>
   );
 };
 export default MealSearch;

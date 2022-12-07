@@ -1,4 +1,6 @@
 .mealSearch {
   background-color: lightblue;
   text-align: center;
+  border: 2px;
+  border-color: black;
 }

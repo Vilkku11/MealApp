@@ -4,5 +4,10 @@ textarea {
 
 .mealMenu {
   background-color: lightblue;
-  text-align: center;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  margin: auto 0;
+  overflow-y: auto;
+  padding: 10px 0;
 }
