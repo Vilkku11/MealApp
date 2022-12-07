@@ -12,6 +12,7 @@ import MealInfoPage from "./pages/MealInfoPage";
 import Signup from "./components/Authentication/Signup";
 import Dashboard from "./components/Authentication/Dashboard";
 import Login from "./components/Authentication/Login";
+import PrivateRoute from "./components/Authentication/PrivateRoute";
 
 function App() {
   const [mealList, setMealList] = useState([]);
@@ -54,9 +55,7 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
-            <Route path="/dashboard">
-              <Dashboard></Dashboard>
-            </Route>
+            <PrivateRoute path="/dashboard" component={Dashboard} />
           </Switch>
         </Container>
       </div>
