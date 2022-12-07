@@ -13,6 +13,7 @@ import Signup from "./components/Authentication/Signup";
 import Dashboard from "./components/Authentication/Dashboard";
 import Login from "./components/Authentication/Login";
 import PrivateRoute from "./components/Authentication/PrivateRoute";
+import ForgotPassword from "./components/Authentication/ForgotPassword";
 
 function App() {
   const [mealList, setMealList] = useState([]);
@@ -49,13 +50,10 @@ function App() {
         >
           <div className="w-100" style={{ maxWidth: "0px" }}></div>
           <Switch>
-            <Route path="/signup">
-              <Signup></Signup>
-            </Route>
-            <Route path="/login">
-              <Login></Login>
-            </Route>
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
             <PrivateRoute path="/dashboard" component={Dashboard} />
+            <Route path="/forgot-password" component={ForgotPassword} />
           </Switch>
         </Container>
       </div>
