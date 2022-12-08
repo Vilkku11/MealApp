@@ -10,7 +10,9 @@ const MealInfoPage = (props) => {
   const history = useHistory();
 
   const [data, setData] = useState([]);
+  const [favourite, setFavourite] = useState(false);
   const { currentUser } = useAuth();
+  let mealDatabaseKey = "";
 
   const backToMain = () => {
     history.push("/");
@@ -23,31 +25,84 @@ const MealInfoPage = (props) => {
     });
   };
 
+  const checkList = async () => {
+    // Check if logged in and if meal added to favourite list
+    if (currentUser) {
+      const url =
+        process.env.REACT_APP_FIREBASE_DATABASE +
+        currentUser.email.replace(".", "_") +
+        ".json";
+
+      const response = await fetch(url, {
+        method: "GET",
+      });
+
+      const answer = await response.json();
+
+      Object.entries(answer).map((item) => {
+        if (item[1] === props.mealId) {
+          setFavourite(true);
+          mealDatabaseKey = item[0];
+        }
+      });
+      console.log(mealDatabaseKey);
+    }
+  };
+
   const addToList = async () => {
     const url =
       process.env.REACT_APP_FIREBASE_DATABASE +
       currentUser.email.replace(".", "_") +
       ".json";
-    console.log(url);
 
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify(data),
+      body: JSON.stringify(data.idMeal),
       headers: {
         "Content-Type": "application/json",
       },
     });
     const answer = await response.json();
     console.log(answer);
+    setFavourite(true);
+  };
+
+  const removeFromList = async () => {
+    const url =
+      process.env.REACT_APP_FIREBASE_DATABASE +
+      currentUser.email.replace(".", "_") +
+      "/" +
+      mealDatabaseKey +
+      ".json";
+
+    const response = await fetch(url, {
+      method: "DELETE",
+      body: JSON.stringify(data.idMeal),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(response);
+    setFavourite(false);
   };
 
   useEffect(() => {
     getMeal();
+    checkList();
   }, []);
   return (
     <div>
       <div>
-        {currentUser ? <Button onClick={addToList}>Add to list</Button> : ""}
+        {currentUser && !favourite ? (
+          <Button onClick={addToList}>Add to Favourite!</Button>
+        ) : (
+          ""
+        )}
+        {favourite ? (
+          <Button onClick={removeFromList}>Remove from favourites</Button>
+        ) : (
+          ""
+        )}
       </div>
       <Button onClick={backToMain}>back to main</Button>
       <div className="mealInfo">
