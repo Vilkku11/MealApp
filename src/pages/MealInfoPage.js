@@ -38,14 +38,15 @@ const MealInfoPage = (props) => {
       });
 
       const answer = await response.json();
-
-      Object.entries(answer).map((item) => {
-        if (item[1] === props.mealId) {
-          setFavourite(true);
-          mealDatabaseKey = item[0];
-        }
-      });
-      console.log(mealDatabaseKey);
+      if (answer !== null) {
+        Object.entries(answer).map((item) => {
+          if (item[1] === props.mealId) {
+            setFavourite(true);
+            mealDatabaseKey = item[0];
+          }
+        });
+        console.log(mealDatabaseKey);
+      }
     }
   };
 

@@ -19,6 +19,7 @@ function App() {
   const [mealList, setMealList] = useState([]);
   const [mealId, setMealId] = useState([]);
   const [img, setImg] = useState([]);
+  const testi = "testi";
 
   return (
     <AuthProvider>
@@ -52,7 +53,12 @@ function App() {
           <Switch>
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
-            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <PrivateRoute
+              path="/dashboard"
+              component={Dashboard}
+              setMealList={setMealList}
+              testi={testi}
+            />
             <Route path="/forgot-password" component={ForgotPassword} />
           </Switch>
         </Container>
