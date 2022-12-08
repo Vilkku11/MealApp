@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Card, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
-import MealDatabaseList from "../MealDatabaseList";
-
+import MealDatabaseFetch from "../MealDatabaseFetch";
 const Dashboard = (props) => {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
@@ -35,7 +34,7 @@ const Dashboard = (props) => {
         <Button variant="link" onClick={logOut}>
           Log Out
         </Button>
-        <MealDatabaseList setMealList={props.setMealList}></MealDatabaseList>
+        <MealDatabaseFetch setMealList={props.setMealList}></MealDatabaseFetch>
         <h2>{props.testi}</h2>
       </div>
     </div>

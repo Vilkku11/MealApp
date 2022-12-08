@@ -5,7 +5,6 @@ import { Button } from "react-bootstrap";
 import MealInfo from "../components/MealInfo";
 import "./MealInfoPage.css";
 import { useAuth } from "../contexts/AuthContext";
-
 const MealInfoPage = (props) => {
   const history = useHistory();
 
