@@ -9,6 +9,7 @@ const MealDatabaseFetch = () => {
   let mealIdList = [];
   let meals = [];
   const [meal, setMeals] = useState();
+  const [listReady, setListReady] = useState(false);
 
   const { currentUser } = useAuth();
 
@@ -31,20 +32,22 @@ const MealDatabaseFetch = () => {
     fetchMeals();
   };
 
-  const fetchMeals = async () => {
-    mealIdList.map((item) => {
+  const fetchMeals = () => {
+    mealIdList.map((item, index) => {
       let address = process.env.REACT_APP_MEALDB_ID + item;
       fetchh(address);
     });
+    setMeals(meals);
   };
   const fetchh = async (address) => {
     const response = await fetch(address);
     const data = await response.json();
     if (data.meals != null) {
       meals.push(data.meals);
+      console.log(data.meals);
+      console.log("pushing");
     }
     console.log(meals);
-    setMeals(meals);
   };
   useEffect(() => {
     getList();
@@ -52,7 +55,7 @@ const MealDatabaseFetch = () => {
   return (
     <div>
       <Button onClick={getList}>testi</Button>
-      {meal ? <MealDatabaseList meals={meal}></MealDatabaseList> : ""}
+      {listReady ? <MealDatabaseList meals={meal}></MealDatabaseList> : ""}
     </div>
   );
 };
