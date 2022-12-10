@@ -104,7 +104,7 @@ const MealInfoPage = (props) => {
           ""
         )}
       </div>
-      <Button onClick={backToMain}>back to main</Button>
+      <Button onClick={backToMain}>Back</Button>
       <div className="mealInfo">
         <MealInfo data={data} img={props.img}></MealInfo>
       </div>

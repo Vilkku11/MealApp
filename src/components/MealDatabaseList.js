@@ -7,19 +7,9 @@ const MealDatabaseList = (props) => {
   console.log(Object.keys(props.meals).length);
 
   const render = () => {
-    /*return(
-      <ul>
-    {for (let i = 0; i < data.length; i++) (
-      
-        
-          <li key={index}>{data[i][0].strMeal}</li>
-          ))}
-    </ul>
-    );
-  }*/
-    for (let i = 0; i < Object.keys(props.meals).length; i++) {
+    /* for (let i = 0; i < Object.keys(props.meals).length; i++) {
       console.log(data[i]);
-    }
+    }*/
     return (
       <ul>
         {data.map((item, index) => (
@@ -31,6 +21,7 @@ const MealDatabaseList = (props) => {
   useEffect(() => {
     render();
   }, []);
+
   return <div>{render()}</div>;
 };
 

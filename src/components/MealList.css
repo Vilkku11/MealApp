@@ -3,7 +3,7 @@ textarea {
 }
 
 .mealMenu {
-  background-color: lightblue;
+  background-color: lightcyan;
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;

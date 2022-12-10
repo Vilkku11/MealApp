@@ -6,12 +6,13 @@ const MainNavigation = () => {
   const { currentUser } = useAuth();
   return (
     <header className="header">
-      <h2>MainNavigation</h2>
+      <h2>MealApp</h2>
       <nav>
         <ul>
           <li>
             <Link to="/">Search</Link>
           </li>
+
           <li>
             {currentUser ? (
               <Link to="/dashboard">Profile</Link>

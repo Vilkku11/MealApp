@@ -19,7 +19,6 @@ function App() {
   const [mealList, setMealList] = useState([]);
   const [mealId, setMealId] = useState([]);
   const [img, setImg] = useState([]);
-  const testi = "testi";
 
   return (
     <AuthProvider>
@@ -57,7 +56,6 @@ function App() {
               path="/dashboard"
               component={Dashboard}
               setMealList={setMealList}
-              testi={testi}
             />
             <Route path="/forgot-password" component={ForgotPassword} />
           </Switch>

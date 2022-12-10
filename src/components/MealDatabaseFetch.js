@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 import { useAuth } from "../contexts/AuthContext";
 
 import MealDatabaseList from "./MealDatabaseList";
 
-const MealDatabaseFetch = () => {
+const MealDatabaseFetch = (props) => {
   let mealIdList = [];
   let meals = [];
   const [meal, setMeals] = useState();
@@ -60,8 +61,15 @@ const MealDatabaseFetch = () => {
   }, []);
   return (
     <div>
-      <Button onClick={getList}>testi</Button>
-      {listReady ? <MealDatabaseList meals={meal}></MealDatabaseList> : ""}
+      <h3>Favourites:</h3>
+      {listReady ? (
+        <MealDatabaseList
+          meals={meal}
+          setMealList={props.setMealList}
+        ></MealDatabaseList>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

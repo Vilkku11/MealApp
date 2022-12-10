@@ -35,7 +35,6 @@ const Dashboard = (props) => {
           Log Out
         </Button>
         <MealDatabaseFetch setMealList={props.setMealList}></MealDatabaseFetch>
-        <h2>{props.testi}</h2>
       </div>
     </div>
   );
