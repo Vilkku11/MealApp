@@ -26,15 +26,18 @@ const MealDatabaseFetch = () => {
     if (answer !== null) {
       Object.entries(answer).map((item) => {
         mealIdList.push(item[1]);
+        console.log(item);
       });
     }
     console.log(mealIdList);
+
     fetchMeals();
   };
 
   const fetchMeals = () => {
     mealIdList.map((item, index) => {
       let address = process.env.REACT_APP_MEALDB_ID + item;
+      console.log(item);
       fetchh(address);
     });
     setMeals(meals);
@@ -48,6 +51,9 @@ const MealDatabaseFetch = () => {
       console.log("pushing");
     }
     console.log(meals);
+    if (mealIdList.length === meals.length) {
+      setListReady(true);
+    }
   };
   useEffect(() => {
     getList();

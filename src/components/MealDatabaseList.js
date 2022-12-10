@@ -1,4 +1,7 @@
+import { useEffect } from "react";
+
 const MealDatabaseList = (props) => {
+  console.log(props.meals);
   console.log(props.meals);
   const data = props.meals;
   console.log(Object.keys(props.meals).length);
@@ -25,7 +28,9 @@ const MealDatabaseList = (props) => {
       </ul>
     );
   };
-
+  useEffect(() => {
+    render();
+  }, []);
   return <div>{render()}</div>;
 };
 
