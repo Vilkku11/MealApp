@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Container} from "react-bootstrap";
+import { Container,} from "react-bootstrap";
 import "./MealSearch.css";
 import MealList from "./MealList";
 
@@ -13,7 +13,7 @@ const MealSearch = (props) => {
     let meals = [];
     // Fetch meals
     let address =
-      "https://www.themealdb.com/api/json/v1/1/search.php?s=" +
+      process.env.REACT_APP_MEALDB_NAME +
       search.current.value;
 
     console.log(address);
